@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fleabag lover</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('images/background.png'); /* Görselin yolu */
+            background-size: cover; /* Ekranı kaplasın */
+            background-position: center; /* Ortalanmış */
+            background-repeat: no-repeat; /* Tekrarlanmasın */
+            text-align: center;
+            padding: 15px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.7); /* Okunabilirlik için hafif şeffaf arka plan */
+            padding: 5px;
+            border-radius: 4px;
+        }
+        #player {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            margin: 0 auto 10px auto;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 14px;
+            background-color: #e63946;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #d00000;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 8px;
+            font-size: 12px;
+            width: 100%;
+        }
+        footer a {
+            color: #e63946;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Mobil uyumluluk */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+            button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            footer {
+                font-size: 10px;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Made by 4nd0r3x for cute girl</h1>
+        <video id="player" controls>
+            <source id="videoSource" src="" type="video/mp4">
+            Tarayıcınız video oynatmayı desteklemiyor.
+        </video>
+        <br>
+        <button onclick="getRandomScene()">random scene</button>
+    </div>
+
+    <footer>
+        Made by <a href="https://github.com/4nd0r3x" target="_blank">4nd0r3x</a>
+    </footer>
+
+    <script>
+        const videos = [
+          "0402/0402-2.mp4",    "0402/0402-4.mp4",  "0402/0402-5.mp4",
+            "0402/0402-6.mp4",  "0402/0402-7.mp4",    "0402/0402-9.mp4",  "0402/0402-10.mp4",
+            "0402/0402-11.mp4",  "0402/0402-13.mp4", "0402/0402-14.mp4", "0402/0402-15.mp4",
+            "0402/0402-16.mp4", "0402/0402-17.mp4",  "0402/0402-19.mp4", "0402/0402-20.mp4",
+            "0402/0402-21.mp4", "0402/0402-22.mp4", "0402/0402-23.mp4", "0402/0402-24.mp4", "0402/0402-25.mp4",
+            "0402/0402-26.mp4", "0402/0402-27.mp4", "0402/0402-28.mp4", "0402/0402-29.mp4", "0402/0402-30.mp4",
+            "0402/0402-31.mp4", "0402/0402-32.mp4", "0402/0402-33.mp4",  "0402/0402-35.mp4"
+        ];
+
+        const videoPlayer = document.getElementById("player");
+        const videoSource = document.getElementById("videoSource");
+
+        function getRandomScene() {
+            const randomIndex = Math.floor(Math.random() * videos.length);
+            videoSource.src = videos[randomIndex];
+            videoPlayer.load();
+            videoPlayer.play();
+        }
+
+        // Sayfa yüklendiğinde rastgele bir sahne
+        getRandomScene();
+    </script>
+</body>
+</html>
